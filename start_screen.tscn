@@ -1,0 +1,164 @@
+[gd_scene load_steps=7 format=3 uid="uid://ige871nt07ne"]
+
+[ext_resource type="Texture2D" uid="uid://da112f27rx6ql" path="res://art/startScreen/startScreen.svg" id="1_bulb6"]
+[ext_resource type="Script" path="res://start_screen.gd" id="1_g43mc"]
+[ext_resource type="FontFile" uid="uid://bwy5pdn3ctotf" path="res://fonts/titleScreenFont.ttf" id="3_ew65f"]
+[ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="3_ndknm"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="4_mj3ep"]
+[ext_resource type="PackedScene" uid="uid://dsbhu632ftpa2" path="res://settings_menu.tscn" id="6_gr253"]
+
+[node name="StartScreen" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_g43mc")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bulb6")
+
+[node name="FillLabel" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -431.0
+offset_right = 16.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.219608, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_ew65f")
+theme_override_font_sizes/font_size = 171
+text = "FILL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_group_ = true
+
+[node name="TheLabel" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -311.0
+offset_right = 2.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.219608, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_ew65f")
+theme_override_font_sizes/font_size = 115
+text = "the"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_group_ = true
+
+[node name="GreenhouseLabel" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -160.0
+offset_right = -1.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.219608, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_ew65f")
+theme_override_font_sizes/font_size = 217
+text = "GREENHOUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_mj3ep")
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 690
+
+[node name="Seperator" type="Control" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="Play" type="Button" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_ndknm")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Settings" type="Button" parent="MainMenu/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ndknm")
+theme_override_font_sizes/font_size = 50
+text = "Instructions"
+
+[node name="SettingsMenu" parent="MainMenu" instance=ExtResource("6_gr253")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MainMenu/MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

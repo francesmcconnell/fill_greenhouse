@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ipr0af8jad1x"]
+
+[ext_resource type="AudioStream" uid="uid://cpyqa323k86qw" path="res://sounds/[EDITED] The Tourist 30 Minutes.mp3" id="1_4nj86"]
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_4nj86")
+autoplay = true

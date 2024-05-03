@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://d1rml3872ffkl"]
+
+[ext_resource type="Texture2D" uid="uid://frxi6fayhqky" path="res://art/rackSceen/seedRackBackground.svg" id="1_w62r0"]
+[ext_resource type="PackedScene" uid="uid://c0ntcpvg1x3m6" path="res://packet.tscn" id="2_5nmaf"]
+[ext_resource type="Texture2D" uid="uid://bfillth85d8qe" path="res://art/rackSceen/pasquePacket.svg" id="2_p82fr"]
+[ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="2_sulch"]
+[ext_resource type="Texture2D" uid="uid://dcvrurdkjt3vh" path="res://art/rackSceen/shelf2.svg" id="4_n3cos"]
+[ext_resource type="Texture2D" uid="uid://c5la40kpam8rx" path="res://art/rackSceen/wildYamPacket.svg" id="5_44bfy"]
+[ext_resource type="Texture2D" uid="uid://bgrt3031031m3" path="res://art/rackSceen/PFpacketBack.svg" id="5_jk2m7"]
+[ext_resource type="Texture2D" uid="uid://c0a77m0h12taq" path="res://art/rackSceen/shelf1.svg" id="7_3qhyi"]
+[ext_resource type="Texture2D" uid="uid://bu7m5bd7hq6oe" path="res://art/rackSceen/WYpacketBack.svg" id="7_7yokc"]
+[ext_resource type="Texture2D" uid="uid://dwb51cxe3x03c" path="res://art/rackSceen/LSpacketBack.svg" id="9_ckbat"]
+[ext_resource type="Texture2D" uid="uid://bywqfjp523y37" path="res://art/rackSceen/XMark.svg" id="11_hlv7n"]
+[ext_resource type="Texture2D" uid="uid://cw27ama6qys5o" path="res://art/rackSceen/CheckMark.svg" id="12_fua6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo470"]
+size = Vector2(278, 338)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u337r"]
+size = Vector2(282, 217)
+
+[node name="RackScreen" type="Node2D"]
+
+[node name="rackBackground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_w62r0")
+
+[node name="BackButton" parent="." instance=ExtResource("2_sulch")]
+
+[node name="wildYamPacket" parent="." instance=ExtResource("2_5nmaf")]
+order = 3
+species = 2
+
+[node name="packetSprite" parent="wildYamPacket" index="0"]
+texture = ExtResource("5_44bfy")
+
+[node name="packetBackSprite" parent="wildYamPacket" index="1"]
+texture = ExtResource("7_7yokc")
+
+[node name="CollisionShape2D" parent="wildYamPacket" index="2"]
+position = Vector2(8.5, -103.906)
+
+[node name="pasquePacket" parent="." instance=ExtResource("2_5nmaf")]
+order = 2
+species = 1
+
+[node name="packetSprite" parent="pasquePacket" index="0"]
+texture = ExtResource("2_p82fr")
+
+[node name="packetBackSprite" parent="pasquePacket" index="1"]
+texture = ExtResource("5_jk2m7")
+
+[node name="CollisionShape2D" parent="pasquePacket" index="2"]
+position = Vector2(7, -119.5)
+
+[node name="shelf2" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(960, 540)
+texture = ExtResource("4_n3cos")
+
+[node name="ladySlipperPacket" parent="." instance=ExtResource("2_5nmaf")]
+order = 1
+
+[node name="packetBackSprite" parent="ladySlipperPacket" index="1"]
+texture = ExtResource("9_ckbat")
+
+[node name="CollisionShape2D" parent="ladySlipperPacket" index="2"]
+position = Vector2(10, -97)
+
+[node name="shelf1" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(958, 540)
+texture = ExtResource("7_3qhyi")
+
+[node name="xMark" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="xMark"]
+position = Vector2(958, 538)
+texture = ExtResource("11_hlv7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="xMark"]
+position = Vector2(403, 631)
+shape = SubResource("RectangleShape2D_wo470")
+
+[node name="checkMark" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="checkMark"]
+position = Vector2(962, 540)
+texture = ExtResource("12_fua6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkMark"]
+position = Vector2(1540, 636.5)
+shape = SubResource("RectangleShape2D_u337r")
+
+[editable path="wildYamPacket"]
+[editable path="pasquePacket"]
+[editable path="ladySlipperPacket"]

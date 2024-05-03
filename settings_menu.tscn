@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsbhu632ftpa2"]
+
+[ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="1_gf3hp"]
+[ext_resource type="Script" path="res://settings_menu.gd" id="1_y08b0"]
+[ext_resource type="Texture2D" uid="uid://da112f27rx6ql" path="res://art/startScreen/startScreen.svg" id="2_u3sac"]
+[ext_resource type="FontFile" uid="uid://bwy5pdn3ctotf" path="res://fonts/titleScreenFont.ttf" id="3_qoui4"]
+[ext_resource type="PackedScene" uid="uid://6g11ad5yfnhh" path="res://settings_tab_container.tscn" id="3_r85sp"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y08b0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 30
+
+[node name="StartScreenBackground" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(956, 540)
+texture = ExtResource("2_u3sac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -85
+
+[node name="SettingsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.219608, 0.0196078, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_qoui4")
+theme_override_font_sizes/font_size = 115
+text = "Instructions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsTabContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_r85sp")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ExitSettingsWindow" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_gf3hp")
+theme_override_font_sizes/font_size = 50
+text = "Exit Instructions"

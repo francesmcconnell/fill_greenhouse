@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://coldhildj8yox"]
+
+[ext_resource type="Script" path="res://back_button.gd" id="1_6rsi8"]
+[ext_resource type="Texture2D" uid="uid://dbf5bnemdrww" path="res://art/backButton.svg" id="2_od3ru"]
+
+[node name="BackButton" type="Area2D"]
+script = ExtResource("1_6rsi8")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_od3ru")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(123, 46, 122, 86, 69, 88, 68, 118, 14, 66, 67, 11, 69, 45)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

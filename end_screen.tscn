@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://jdhhcyo3ybxa"]
+
+[ext_resource type="Script" path="res://endScreen.gd" id="1_jx38v"]
+[ext_resource type="Texture2D" uid="uid://c008lkhxegqh8" path="res://art/endScreen/EndScreen.svg" id="2_birpp"]
+[ext_resource type="PackedScene" uid="uid://budbwfgc7s4b8" path="res://pot.tscn" id="4_n5ptp"]
+[ext_resource type="Texture2D" uid="uid://btdm7g818jxfy" path="res://art/endScreen/restartButton.svg" id="4_renja"]
+[ext_resource type="Script" path="res://restart_button.gd" id="4_wcidd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krboo"]
+size = Vector2(263, 84.9998)
+
+[node name="EndScreen" type="Node2D"]
+position = Vector2(6.10352e-05, 0)
+scale = Vector2(1, 1)
+script = ExtResource("1_jx38v")
+
+[node name="EndScreen" type="Sprite2D" parent="."]
+position = Vector2(962.5, 547.5)
+scale = Vector2(1.00469, 1.00833)
+texture = ExtResource("2_birpp")
+
+[node name="Pot0" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(-657, 118)
+rotation = 0.00963019
+scale = Vector2(1.1, 1.15)
+skew = -0.000583768
+
+[node name="Pot1" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(-466, -76)
+rotation = 0.00963019
+scale = Vector2(1.061, 1.109)
+skew = -0.000583768
+number = 1
+
+[node name="Pot2" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(-322, -332)
+rotation = 0.00963019
+scale = Vector2(1.1, 1.15)
+skew = -0.000583768
+number = 2
+
+[node name="Pot3" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(-39, -422)
+rotation = 0.00963019
+scale = Vector2(1.06, 1.109)
+skew = -0.000583768
+number = 3
+
+[node name="Pot4" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(147, -331)
+rotation = 0.00963019
+scale = Vector2(1.1, 1.15)
+skew = -0.000583768
+number = 4
+
+[node name="Pot5" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(298, -107)
+rotation = 0.00963019
+scale = Vector2(1.1, 1.15)
+skew = -0.000583768
+number = 5
+
+[node name="Pot6" parent="." instance=ExtResource("4_n5ptp")]
+position = Vector2(520, 144)
+rotation = 0.00963019
+scale = Vector2(1.061, 1.109)
+skew = -0.000583768
+number = 6
+
+[node name="restartButton" type="Area2D" parent="."]
+script = ExtResource("4_wcidd")
+
+[node name="restartButtonSprite" type="Sprite2D" parent="restartButton"]
+position = Vector2(960, 540)
+texture = ExtResource("4_renja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="restartButton"]
+position = Vector2(1779.5, 1030.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_krboo")
+
+[connection signal="input_event" from="restartButton" to="restartButton" method="_on_input_event"]

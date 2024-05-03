@@ -1,0 +1,1250 @@
+[gd_scene load_steps=39 format=3 uid="uid://cal3i4ptukm7r"]
+
+[ext_resource type="Texture2D" uid="uid://bx73fkc7ng2p" path="res://art/workbenchScreen/workbenchBackground.svg" id="1_4fkqx"]
+[ext_resource type="Script" path="res://workbench_screen.gd" id="1_hbnyc"]
+[ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="3_8qao5"]
+[ext_resource type="Script" path="res://plant.gd" id="3_cmqpq"]
+[ext_resource type="Texture2D" uid="uid://gs1qwk4fpl70" path="res://art/pot/potTop.svg" id="3_qt0kc"]
+[ext_resource type="Texture2D" uid="uid://b6sm0u1um0tro" path="res://art/pot/potBottom.svg" id="4_56n0v"]
+[ext_resource type="Texture2D" uid="uid://c541beuh60fa3" path="res://art/workbenchScreen/wateringCan.svg" id="5_5toqa"]
+[ext_resource type="Texture2D" uid="uid://br3e8e7i7ykrs" path="res://art/workbenchScreen/water.svg" id="5_7xiaf"]
+[ext_resource type="Script" path="res://watering_can.gd" id="6_0g8e2"]
+[ext_resource type="Script" path="res://pot_soil.gd" id="6_1g0id"]
+[ext_resource type="Texture2D" uid="uid://cew1cd44inmsb" path="res://art/pot/potSoilFull.svg" id="6_ts8tx"]
+[ext_resource type="Texture2D" uid="uid://lb7trutewhlx" path="res://art/workbenchScreen/shovel.svg" id="9_4222s"]
+[ext_resource type="Texture2D" uid="uid://dkfu1pcrq02be" path="res://art/workbenchScreen/shovelSoil.svg" id="10_ikdqk"]
+[ext_resource type="Script" path="res://shovel.gd" id="10_x3yoa"]
+[ext_resource type="Texture2D" uid="uid://djtfrq82vg5yi" path="res://art/workbenchScreen/soilBagSoil.svg" id="11_57c1x"]
+[ext_resource type="Texture2D" uid="uid://t6f5a4120j3" path="res://art/workbenchScreen/soilBag.svg" id="11_h0532"]
+[ext_resource type="Texture2D" uid="uid://bgxu0xs2nywd0" path="res://art/plant/ladySlipper/ladySlipper4.svg" id="15_pngjw"]
+[ext_resource type="Script" path="res://removedPlant.gd" id="16_1rmr2"]
+[ext_resource type="Script" path="res://rack.gd" id="16_qo0tw"]
+[ext_resource type="Texture2D" uid="uid://cddi5cbqn6lgm" path="res://art/workbenchScreen/rackSmall.svg" id="16_umgdm"]
+[ext_resource type="Texture2D" uid="uid://ctncs7tsh07fy" path="res://art/workbenchScreen/ladySlipperPacketSmall.svg" id="17_j7hik"]
+[ext_resource type="Texture2D" uid="uid://cjgimuhcc8hyx" path="res://art/workbenchScreen/wildYamPacketSmall.svg" id="19_vvndw"]
+[ext_resource type="Texture2D" uid="uid://nxufyvug70bu" path="res://art/workbenchScreen/shelf1Small.svg" id="20_bor8v"]
+[ext_resource type="Texture2D" uid="uid://bu6yx0oojimjp" path="res://art/plant/ladySlipper/ladySlipperBlank.svg" id="22_nagxk"]
+[ext_resource type="Texture2D" uid="uid://dvc13pr1louco" path="res://art/plant/ladySlipper/ladySlipper0.svg" id="24_517bm"]
+
+[sub_resource type="Animation" id="Animation_br3cn"]
+length = 0.001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wateringCan/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wateringCan/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("water:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("water:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8n3qa"]
+resource_name = "watering"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wateringCan/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.51, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.614356, -0.614356, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wateringCan/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(985, 626), Vector2(985, 626), Vector2(960, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("water:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 3, 3.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("water:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b2nu5"]
+_data = {
+"RESET": SubResource("Animation_br3cn"),
+"watering": SubResource("Animation_8n3qa")
+}
+
+[sub_resource type="Animation" id="Animation_21f0j"]
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1600, 870)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("soil:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("soil:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-640, -320)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("soil:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../potBottom:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../plant:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../potTop:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../soilBagSoil:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../removed_plant:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../plant:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../removed_plant:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../removed_plant:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:z_index")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("removedPlant:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-166.285, -177.297)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("removedPlant:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../potSoil:z_index")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_53kwg"]
+resource_name = "fill_soil_2"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3.7, 4.5, 5.3, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(650, 175), Vector2(500, 225), Vector2(650, 175), Vector2(1250, 500), Vector2(1250, 500), Vector2(1354, 460), Vector2(1600, 870)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3.7, 4.7, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.610865, 0.0, 0.0, -0.610865, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("soil:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("soil:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-640, -320), Vector2(-640, -320), Vector2(-860, -204.108)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("soil:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../potBottom:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.2, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../plant:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 2]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../potSoil/potSoilSprite")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(4.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"update_state"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../soilBagSoil:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../potSoil:z_index")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4.2, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 2]
+}
+
+[sub_resource type="Animation" id="Animation_776y4"]
+resource_name = "remove_soil"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1, 2.5, 3.5, 3.9, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1295, 473), Vector2(1150, 650), Vector2(1250, 500), Vector2(270, 235), Vector2(270, 235), Vector2(650, 175), Vector2(1600, 870)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 2.5, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.593412, -0.593412, 0.0, 0.0, -0.872665, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("soil:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("soil:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 2.8, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-860, -204.108), Vector2(-640, -320), Vector2(-640, -320), Vector2(-1000, -700)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("soil:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../potBottom:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 0, 2, 1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../plant:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../potTop:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../soilBagSoil:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:z_index")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.2, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("removedPlant:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2.8, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-166.285, -177.297), Vector2(-550, -575)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("removedPlant:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.7, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../plant:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.7, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../plant")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"resetPlant"
+}]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("removedPlant")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"setTexture"
+}]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../potSoil:z_index")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 3.9, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_7xjeg"]
+resource_name = "remove_soil"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1, 2.5, 3.5, 3.9, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1295, 473), Vector2(1150, 650), Vector2(1250, 500), Vector2(650, 175), Vector2(500, 225), Vector2(650, 175), Vector2(1600, 870)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 2.5, 3.5, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.593412, -0.593412, 0.0, 0.0, -0.610865, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("soil:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("soil:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-860, -204.108), Vector2(-640, -320)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("soil:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../potBottom:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 0, 2]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../plant:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../potSoil/potSoilSprite")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove_soil"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../potTop:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../soilBagSoil:z_index")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rt1o3"]
+_data = {
+"RESET": SubResource("Animation_21f0j"),
+"fill_soil": SubResource("Animation_53kwg"),
+"remove_plant": SubResource("Animation_776y4"),
+"remove_soil": SubResource("Animation_7xjeg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptitu"]
+size = Vector2(311, 379)
+
+[sub_resource type="Animation" id="Animation_bp6fn"]
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("topPacket/topPacket:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("seeds:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("seeds:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("seeds:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("topPacket:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-500, 280)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("topPacket:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../plant:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("seeds:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../shovel:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a8iar"]
+resource_name = "fail_plant_seeds"
+length = 3.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("topPacket/topPacket:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("topPacket:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1, 1.2, 1.4, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-500, 275), Vector2(-340, 140), Vector2(-300, 140), Vector2(-380, 140), Vector2(-320, 140), Vector2(-340, 140), Vector2(-340, 140), Vector2(-500, 275)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../shovel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5, 3.1, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d1dfa"]
+resource_name = "plant_pasque"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("topPacket/topPacket:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("seeds:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("seeds:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 2.1, 2.5, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(56, -372), Vector2(80, -278), Vector2(40, -130), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("seeds:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 1.8, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.523599, 0.523599, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("topPacket:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2.9, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-500, 275), Vector2(-175, 2), Vector2(-175, 2), Vector2(-500, 275)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("topPacket:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.4, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.785398, 0.785398, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../plant:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("seeds:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqkb4"]
+_data = {
+"RESET": SubResource("Animation_bp6fn"),
+"fail_plant_seeds": SubResource("Animation_a8iar"),
+"plant_seeds": SubResource("Animation_d1dfa")
+}
+
+[node name="WorkbenchScreen" type="Node2D"]
+script = ExtResource("1_hbnyc")
+
+[node name="WorkbenchBackground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_4fkqx")
+
+[node name="BackButton" parent="." instance=ExtResource("3_8qao5")]
+
+[node name="potTop" type="TextureRect" parent="."]
+z_index = 1
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1919.0
+offset_bottom = 1081.0
+texture = ExtResource("3_qt0kc")
+
+[node name="potBottom" type="TextureRect" parent="."]
+z_index = 1
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1919.0
+offset_bottom = 1081.0
+texture = ExtResource("4_56n0v")
+
+[node name="potSoil" type="Area2D" parent="."]
+z_index = 1
+
+[node name="potSoilSprite" type="Sprite2D" parent="potSoil"]
+position = Vector2(960, 540)
+texture = ExtResource("6_ts8tx")
+script = ExtResource("6_1g0id")
+
+[node name="collisionSoilEmpty" type="CollisionPolygon2D" parent="potSoil"]
+
+[node name="collisionSoilFull" type="CollisionPolygon2D" parent="potSoil"]
+polygon = PackedVector2Array(881, 713, 828, 750, 959, 796, 1129, 758, 1089, 713)
+disabled = true
+
+[node name="collisionSoilOverfull1" type="CollisionPolygon2D" parent="potSoil"]
+polygon = PackedVector2Array(838, 681, 847, 779, 1097, 782, 1161, 683, 981, 652)
+disabled = true
+
+[node name="collisionSoilOverfull2" type="CollisionPolygon2D" parent="potSoil"]
+polygon = PackedVector2Array(883, 593, 828, 765, 1141, 751, 1072, 585, 996, 550)
+disabled = true
+
+[node name="water" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(960, 540)
+texture = ExtResource("5_7xiaf")
+
+[node name="wateringCan" type="Area2D" parent="."]
+script = ExtResource("6_0g8e2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="wateringCan"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_b2nu5")
+}
+speed_scale = 1.5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wateringCan"]
+polygon = PackedVector2Array(1400, 699, 1552, 756, 1762, 701, 1876, 263, 1436, 327, 1234, 327, 1136, 366)
+
+[node name="Sprite2D" type="Sprite2D" parent="wateringCan"]
+position = Vector2(960, 540)
+texture = ExtResource("5_5toqa")
+
+[node name="soilBag" type="Area2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="soilBag" type="Sprite2D" parent="soilBag"]
+texture = ExtResource("11_h0532")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="soilBag"]
+position = Vector2(-2, -10)
+polygon = PackedVector2Array(-762, -312, -753, 18, -379, 69, -410, -314)
+
+[node name="soilBagSoil" type="Area2D" parent="."]
+
+[node name="soilBagSoilSprite" type="Sprite2D" parent="soilBagSoil"]
+position = Vector2(960, 540)
+texture = ExtResource("11_57c1x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="soilBagSoil"]
+position = Vector2(1.85294, -2.82225)
+scale = Vector2(0.983456, 1.01921)
+polygon = PackedVector2Array(228.935, 283.378, 219, 481, 554, 479, 538.049, 287.303)
+
+[node name="plant" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(960, 540)
+texture = ExtResource("22_nagxk")
+script = ExtResource("3_cmqpq")
+
+[node name="shovel" type="Area2D" parent="."]
+position = Vector2(1600, 870)
+script = ExtResource("10_x3yoa")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="shovel"]
+position = Vector2(-12, 7)
+polygon = PackedVector2Array(-302, 58, -106, 81, 25, 55, 241, -48, 215, -106, -30, -78, -180, -50)
+
+[node name="shovelSprite" type="Sprite2D" parent="shovel"]
+position = Vector2(-641, -328)
+texture = ExtResource("9_4222s")
+
+[node name="soil" type="Sprite2D" parent="shovel"]
+visible = false
+z_index = 1
+position = Vector2(-640, -320)
+texture = ExtResource("10_ikdqk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="shovel"]
+libraries = {
+"": SubResource("AnimationLibrary_rt1o3")
+}
+speed_scale = 1.5
+
+[node name="removedPlant" type="Sprite2D" parent="shovel"]
+visible = false
+z_index = 2
+position = Vector2(-166.285, -177.297)
+texture = ExtResource("15_pngjw")
+script = ExtResource("16_1rmr2")
+
+[node name="rack" type="Area2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("16_qo0tw")
+
+[node name="rackSprite" type="Sprite2D" parent="rack"]
+position = Vector2(-7, 0)
+texture = ExtResource("16_umgdm")
+
+[node name="bottomPacket" type="Node2D" parent="rack"]
+position = Vector2(-500, 275)
+
+[node name="bottomPacket" type="Sprite2D" parent="rack/bottomPacket"]
+position = Vector2(492, -285)
+texture = ExtResource("19_vvndw")
+
+[node name="topPacket" type="Node2D" parent="rack"]
+position = Vector2(-500, 280)
+
+[node name="topPacket" type="Sprite2D" parent="rack/topPacket"]
+position = Vector2(492, -270)
+texture = ExtResource("17_j7hik")
+
+[node name="seeds" type="Sprite2D" parent="rack"]
+visible = false
+texture = ExtResource("24_517bm")
+
+[node name="shelf1" type="Sprite2D" parent="rack"]
+texture = ExtResource("20_bor8v")
+offset = Vector2(-7, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rack"]
+position = Vector2(-517, 276)
+shape = SubResource("RectangleShape2D_ptitu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rack"]
+libraries = {
+"": SubResource("AnimationLibrary_kqkb4")
+}
+speed_scale = 1.25
+
+[connection signal="input_event" from="BackButton" to="plant" method="_on_back_button_input_event"]
+[connection signal="area_entered" from="potSoil" to="." method="_on_pot_soil_area_entered"]
+[connection signal="area_exited" from="potSoil" to="." method="_on_pot_soil_area_exited"]
+[connection signal="input_event" from="wateringCan" to="wateringCan" method="_on_input_event"]
+[connection signal="animation_finished" from="wateringCan/AnimationPlayer" to="wateringCan" method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="soilBag" to="." method="_on_soil_bag_area_entered"]
+[connection signal="area_exited" from="soilBag" to="." method="_on_soil_bag_area_exited"]
+[connection signal="mouse_entered" from="soilBagSoil" to="." method="_on_soil_bag_soil_mouse_entered"]
+[connection signal="mouse_exited" from="soilBagSoil" to="." method="_on_soil_bag_soil_mouse_exited"]
+[connection signal="input_event" from="shovel" to="shovel" method="_on_input_event"]
+[connection signal="mouse_entered" from="shovel" to="." method="_on_shovel_mouse_entered"]
+[connection signal="mouse_exited" from="shovel" to="." method="_on_shovel_mouse_exited"]
+[connection signal="animation_finished" from="shovel/AnimationPlayer" to="shovel" method="_on_animation_player_animation_finished"]
+[connection signal="input_event" from="rack" to="rack" method="_on_input_event"]

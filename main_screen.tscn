@@ -1,0 +1,129 @@
+[gd_scene load_steps=16 format=3 uid="uid://bbmq3p3y4g2lr"]
+
+[ext_resource type="Texture2D" uid="uid://bxr1m41ivo7u7" path="res://art/mainScreen/mainScreen.svg" id="1_dxj4q"]
+[ext_resource type="Script" path="res://main_screen.gd" id="1_oresb"]
+[ext_resource type="Texture2D" uid="uid://clwxvcts6077q" path="res://art/mainScreen/thermometer.svg" id="3_nimvq"]
+[ext_resource type="Script" path="res://thermometer.gd" id="3_prkef"]
+[ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="5_d8l18"]
+[ext_resource type="Script" path="res://calendar.gd" id="6_pl254"]
+[ext_resource type="Texture2D" uid="uid://b1yojfu3dia8f" path="res://art/mainScreen/calendar.svg" id="7_csqsa"]
+[ext_resource type="FontFile" uid="uid://bajqxy8ti2t5o" path="res://fonts/calendarFont.ttf" id="8_mcc1s"]
+[ext_resource type="Texture2D" uid="uid://dep51yxfj84pv" path="res://art/mainScreen/nextDayButton.svg" id="9_pt5pc"]
+[ext_resource type="PackedScene" uid="uid://budbwfgc7s4b8" path="res://pot.tscn" id="13_qpnaa"]
+[ext_resource type="PackedScene" uid="uid://cjd8xraosecfm" path="res://volume_button.tscn" id="14_3h5qn"]
+[ext_resource type="Script" path="res://poster.gd" id="14_rwpw1"]
+[ext_resource type="PackedScene" uid="uid://chja3jifya2yp" path="res://black_screen.tscn" id="15_s6ion"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cwhq"]
+radius = 28.0
+height = 144.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lib0e"]
+size = Vector2(255, 79)
+
+[node name="MainScreen" type="Node2D"]
+script = ExtResource("1_oresb")
+
+[node name="MainScreen" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_dxj4q")
+
+[node name="Thermometer" type="Area2D" parent="."]
+script = ExtResource("3_prkef")
+
+[node name="Sprite2D" type="Sprite2D" parent="Thermometer"]
+position = Vector2(961, 540)
+texture = ExtResource("3_nimvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thermometer"]
+position = Vector2(145, 251)
+shape = SubResource("CapsuleShape2D_7cwhq")
+
+[node name="BackButton" parent="." instance=ExtResource("5_d8l18")]
+
+[node name="Calendar" type="Area2D" parent="."]
+script = ExtResource("6_pl254")
+
+[node name="Sprite2D" type="Sprite2D" parent="Calendar"]
+position = Vector2(960, 540)
+texture = ExtResource("7_csqsa")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Calendar"]
+position = Vector2(-3, 30)
+polygon = PackedVector2Array(248, 120, 404, 106, 404, 254, 248, 275)
+
+[node name="Label" type="Label" parent="Calendar"]
+offset_left = 271.0
+offset_top = 189.0
+offset_right = 370.0
+offset_bottom = 280.0
+rotation = -0.141372
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_mcc1s")
+theme_override_font_sizes/font_size = 90
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextDay" type="Area2D" parent="."]
+position = Vector2(1658, 996)
+
+[node name="Sprite2D" type="Sprite2D" parent="NextDay"]
+position = Vector2(-698, -457)
+texture = ExtResource("9_pt5pc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextDay"]
+position = Vector2(124, 33)
+shape = SubResource("RectangleShape2D_lib0e")
+
+[node name="BlackScreen" parent="." instance=ExtResource("15_s6ion")]
+
+[node name="Pot0" parent="." instance=ExtResource("13_qpnaa")]
+position = Vector2(-826, 154)
+
+[node name="Pot1" parent="." instance=ExtResource("13_qpnaa")]
+position = Vector2(-602, 67)
+number = 1
+
+[node name="Pot2" parent="." instance=ExtResource("13_qpnaa")]
+position = Vector2(-273, -4)
+number = 2
+
+[node name="Pot3" parent="." instance=ExtResource("13_qpnaa")]
+position = Vector2(3, -3)
+number = 3
+
+[node name="Pot4" parent="." instance=ExtResource("13_qpnaa")]
+position = Vector2(260, -6)
+number = 4
+
+[node name="Pot5" parent="." instance=ExtResource("13_qpnaa")]
+position = Vector2(595, 65)
+number = 5
+
+[node name="Pot6" parent="." instance=ExtResource("13_qpnaa")]
+position = Vector2(814, 154)
+number = 6
+
+[node name="VolumeButton" parent="." instance=ExtResource("14_3h5qn")]
+
+[node name="Poster" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("14_rwpw1")
+
+[node name="Label" type="Label" parent="Poster"]
+offset_left = -774.0
+offset_top = -196.0
+offset_right = -638.0
+offset_bottom = -65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_mcc1s")
+theme_override_font_sizes/font_size = 130
+text = "3"
+horizontal_alignment = 1
+
+[connection signal="input_event" from="Thermometer" to="Thermometer" method="_on_input_event"]
+[connection signal="mouse_entered" from="Thermometer" to="Thermometer" method="_on_mouse_entered"]
+[connection signal="input_event" from="Calendar" to="Calendar" method="_on_input_event"]
+[connection signal="input_event" from="NextDay" to="." method="_on_next_day_input_event"]

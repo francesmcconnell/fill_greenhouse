@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://chja3jifya2yp"]
+
+[ext_resource type="Texture2D" uid="uid://djva22ydbtvei" path="res://art/mainScreen/blackBackground.svg" id="1_cu867"]
+[ext_resource type="Script" path="res://black_screen.gd" id="2_ropcf"]
+[ext_resource type="Script" path="res://black_screen_player.gd" id="3_4s8w5"]
+
+[sub_resource type="Animation" id="Animation_bbwo5"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackScreenPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.0001),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_nextDay"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o18ow"]
+_data = {
+"fade_to_black": SubResource("Animation_bbwo5")
+}
+
+[node name="BlackScreen" type="Sprite2D"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(960, 540)
+texture = ExtResource("1_cu867")
+script = ExtResource("2_ropcf")
+
+[node name="BlackScreenPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o18ow")
+}
+script = ExtResource("3_4s8w5")
+
+[connection signal="animation_finished" from="BlackScreenPlayer" to="." method="_on_animation_player_animation_finished"]

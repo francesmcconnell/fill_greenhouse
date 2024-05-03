@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkpxamh3cujkk"]
+
+[ext_resource type="Script" path="res://thermometer_screen.gd" id="1_qok6k"]
+[ext_resource type="Texture2D" uid="uid://b7b14k55ua558" path="res://art/thermometerScreen/thermometerBackground.svg" id="2_4wljp"]
+[ext_resource type="FontFile" uid="uid://bmuiint7t2i05" path="res://fonts/thermometerFont.ttf" id="3_rbrpg"]
+[ext_resource type="Script" path="res://temperature_label.gd" id="4_sd1gr"]
+[ext_resource type="Texture2D" uid="uid://uhwcyk0n1ind" path="res://art/thermometerScreen/thermometerUpButton.svg" id="5_bb2t5"]
+[ext_resource type="Texture2D" uid="uid://dqp20qxtlyo1w" path="res://art/thermometerScreen/ThermometerBulb.svg" id="6_vqexe"]
+[ext_resource type="Texture2D" uid="uid://bp8bn71a5kyqr" path="res://art/thermometerScreen/thermometerDownButton.svg" id="6_y37g7"]
+[ext_resource type="Texture2D" uid="uid://r8oqw1if4x3b" path="res://art/thermometerScreen/thermometerFill.svg" id="7_205dk"]
+[ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="7_kwyhr"]
+
+[node name="ThermometerScreen" type="Node2D"]
+script = ExtResource("1_qok6k")
+
+[node name="ThermometerBackground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_4wljp")
+metadata/_edit_lock_ = true
+
+[node name="TempLabel" type="Label" parent="."]
+offset_left = 1033.0
+offset_top = 405.0
+offset_right = 1408.0
+offset_bottom = 660.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rbrpg")
+theme_override_font_sizes/font_size = 300
+text = "75"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_sd1gr")
+
+[node name="UpButton" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="UpButton"]
+position = Vector2(960, 540)
+texture = ExtResource("5_bb2t5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UpButton"]
+polygon = PackedVector2Array(1225, 171, 1432, 321, 1019, 321)
+
+[node name="DownButton" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="DownButton"]
+position = Vector2(960, 540)
+texture = ExtResource("6_y37g7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DownButton"]
+polygon = PackedVector2Array(1020, 759, 1429, 759, 1224, 910)
+
+[node name="ThermometerFill" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_vqexe")
+
+[node name="ThermometerMoving" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("7_205dk")
+
+[node name="BackButton" parent="." instance=ExtResource("7_kwyhr")]
+
+[connection signal="input_event" from="UpButton" to="TempLabel" method="_on_up_button_input_event"]
+[connection signal="input_event" from="DownButton" to="TempLabel" method="_on_down_button_input_event"]

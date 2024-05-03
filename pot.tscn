@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://budbwfgc7s4b8"]
+
+[ext_resource type="Script" path="res://pot.gd" id="1_3skoy"]
+[ext_resource type="Texture2D" uid="uid://bgdseqjefht8v" path="res://art/pot/pot.svg" id="2_4h1xs"]
+[ext_resource type="Texture2D" uid="uid://cew1cd44inmsb" path="res://art/pot/potSoilFull.svg" id="3_bpx1c"]
+[ext_resource type="Texture2D" uid="uid://dvc13pr1louco" path="res://art/plant/ladySlipper/ladySlipper0.svg" id="4_rb4ow"]
+
+[node name="Pot" type="Area2D"]
+script = ExtResource("1_3skoy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(914, 624, 959, 641, 1010, 627, 1031, 500, 889, 499)
+
+[node name="pot" type="Sprite2D" parent="."]
+position = Vector2(950, 460)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_4h1xs")
+
+[node name="soil" type="Sprite2D" parent="."]
+position = Vector2(950, 460)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("3_bpx1c")
+
+[node name="plant" type="Sprite2D" parent="."]
+position = Vector2(950, 460)
+scale = Vector2(0.360417, 0.360185)
+texture = ExtResource("4_rb4ow")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

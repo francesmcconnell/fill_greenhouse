@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://do31su411oblb"]
+
+[ext_resource type="Script" path="res://calendar_screen.gd" id="1_7eq0b"]
+[ext_resource type="Texture2D" uid="uid://q1rq0npcyekf" path="res://art/calendarScreen/calendarBackground.svg" id="2_lt8wi"]
+[ext_resource type="FontFile" uid="uid://bajqxy8ti2t5o" path="res://fonts/calendarFont.ttf" id="3_ekrid"]
+[ext_resource type="PackedScene" uid="uid://coldhildj8yox" path="res://back_button.tscn" id="5_kknav"]
+
+[node name="CalendarScreen" type="Node2D"]
+script = ExtResource("1_7eq0b")
+
+[node name="CalendarBackground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_lt8wi")
+
+[node name="CalendarText" type="Label" parent="."]
+offset_left = 617.0
+offset_top = 253.0
+offset_right = 1346.0
+offset_bottom = 914.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ekrid")
+theme_override_font_sizes/font_size = 660
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" parent="." instance=ExtResource("5_kknav")]

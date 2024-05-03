@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://6g11ad5yfnhh"]
+
+[ext_resource type="FontFile" uid="uid://c3jqwopxkmjna" path="res://fonts/buttonFont.ttf" id="1_6b2c7"]
+
+[node name="SettingsTabContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+tabs_visible = false
+
+[node name="How To Play" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6b2c7")
+theme_override_font_sizes/font_size = 36
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/How To Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/How To Play/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="InstructionsLabel" type="Label" parent="TabContainer/How To Play/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6b2c7")
+theme_override_font_sizes/font_size = 50
+text = "You've stumbled upon a deserted greenhouse at your local college. It's your 
+job to bring it to life!
+
+Plant seeds in the empty pots and do your best to take good care of them. Plants 
+are sensitive to soil, water, and temperature... Do your best to 
+grow as many of them as you can before the plant show at the end 
+of the semester!"
+horizontal_alignment = 1

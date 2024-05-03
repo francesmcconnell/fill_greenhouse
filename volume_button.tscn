@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjd8xraosecfm"]
+
+[ext_resource type="Script" path="res://VolumeButton.gd" id="1_rqdq7"]
+[ext_resource type="Texture2D" uid="uid://dgsexertky5mi" path="res://art/volumeButton.svg" id="2_ykjnw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g0j7t"]
+radius = 56.0803
+
+[node name="VolumeButton" type="Node2D"]
+script = ExtResource("1_rqdq7")
+
+[node name="VolumeButton" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="VolumeButton"]
+position = Vector2(960, 540)
+texture = ExtResource("2_ykjnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VolumeButton"]
+position = Vector2(1845, 74)
+shape = SubResource("CircleShape2D_g0j7t")
+
+[connection signal="input_event" from="VolumeButton" to="." method="_on_volume_button_input_event"]
