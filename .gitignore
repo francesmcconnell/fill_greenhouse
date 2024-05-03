@@ -1,0 +1,11 @@
+
+*.cfg
+*.md5
+*.mp3str
+*.ctex
+*.fontdata
+*.cache
+*.bin
+.godot/.gdignore
+.godot/editor/filesystem_cache8
+.godot/editor/filesystem_update4
