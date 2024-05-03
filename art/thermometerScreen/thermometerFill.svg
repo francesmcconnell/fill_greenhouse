@@ -1,0 +1,12 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+	<title>Thermometer</title>
+	<defs>
+		<image  width="154" height="379" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJoAAAF7CAMAAAAdTmK2AAAAAXNSR0IB2cksfwAAAF1QTFRFqlt3qVt3Z1hdYlRZYFJXY1BYflhlmFpwlllvlVhullhulFlupFp0pFp1pVt1pVt1pVt1YE9VV1FTW1VXXVZZWlNVa1hfrI6Zn1lyn1pyoFpzoVpzoVpzklpuq2mATymKmgAAAB90Uk5T//64wcTLm+fq6+7B9fPz8vCnlJCKfM6B7eno5+TqyWJ4/38AAAHtSURBVHic7dKpUgNBFEDRDAIECBAsAvj/72IRLAIECBCQiksqw3LFZMS57r2ZrjpV3cNitg27BoyHVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltBJaCa2EVkIroZXQSmgltN8IXyP7Hbc3DMPnlv1EtP2P8W8HS9r7lv1EtMO3/5+ZwYWOhfbHjpbP7nVx/LIa5kU7WdKeF6dPq2FK2tnj5ub8YX2+WNLuF5d3q2FK2tXt5ub65off53Wha6GV0EpoJbQSWgmthFZCK6GV0EpoJbQSWgmthFZCK6GV0EpoJbQSWgmthFZCK6GV0EpoJbQSWgmthFZCK6GV0EpoJbQSWgmthFZCK6GV0EpoJbQSWgmthFZCK6GV0EpoJbQSWgmthFZCK6GV0EpoJbQSWgmthFZCK6GV0EpoJbQSWgmthFZCK6GV0EpoJbQSWgmthFZCK6GVZkz7BlJOEHzKo9m9AAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+	</style>
+	<g id="Thermometer">
+		<use id="Thermometer moving fill" href="#img1" x="595" y="256"/>
+	</g>
+</svg>
